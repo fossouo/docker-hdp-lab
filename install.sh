@@ -114,8 +114,8 @@ set +e
 systemctl enable docker
 
 
-sed -i "/ExecStart=/c\ExecStart=\/usr\/bin\/docker daemon -H tcp\:\/\/$LOCAL_IP:2375  -H unix:\/\/\/var\/run\/docker.sock --cluster-store=consul\:\/\/$CONSUL_MANAGER:8500 --cluster-advertise=$LOCAL_IP\:2375" /etc/systemd/system/multi-user.target.wants/docker.service
-sed -i "/ExecStart=/c\ExecStart=\/usr\/bin\/docker daemon -H tcp\:\/\/$LOCAL_IP:2375  -H unix:\/\/\/var\/run\/docker.sock --cluster-store=consul\:\/\/$CONSUL_MANAGER:8500 --cluster-advertise=$LOCAL_IP\:2375" /usr/lib/systemd/system/docker.service
+sed -i "/ExecStart=/c\ExecStart=\/usr\/bin\/dockerd -H tcp\:\/\/$LOCAL_IP:2375  -H unix:\/\/\/var\/run\/docker.sock --cluster-store=consul\:\/\/$CONSUL_MANAGER:8500 --cluster-advertise=$LOCAL_IP\:2375" /etc/systemd/system/multi-user.target.wants/docker.service
+sed -i "/ExecStart=/c\ExecStart=\/usr\/bin\/dockerd -H tcp\:\/\/$LOCAL_IP:2375  -H unix:\/\/\/var\/run\/docker.sock --cluster-store=consul\:\/\/$CONSUL_MANAGER:8500 --cluster-advertise=$LOCAL_IP\:2375" /usr/lib/systemd/system/docker.service
 systemctl daemon-reload
 service docker restart
 set -e
