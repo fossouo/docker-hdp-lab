@@ -31,6 +31,7 @@ Repeat these steps for all the Docker Host Machines-
 
 *3. Install the required Docker packages (Optional Step, since the ./install script would install docker-engine)  
   (refer: https://docs.docker.com/engine/installation/linux/centos/ )
+   You can use the install_docker.sh script (provide in the repo clone in the next step)
 
 *4. Download the docker-hdp-lab setup files:
 
